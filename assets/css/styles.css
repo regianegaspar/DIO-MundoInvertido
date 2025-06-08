@@ -1,0 +1,395 @@
+/***  FONTES ***/
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
+
+/***  VARIVEIS E TEMAS ***/
+
+:root {
+  --primary-color: #cf0f0f;
+  --primary-color-contrast: #ffffff;
+  --field-background-color: #000;
+}
+
+.light-theme {
+  --page-background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 65%,
+    rgba(255, 255, 255, 0.75) 100%
+  );
+  --header-background-color: #e3e3e3;
+  --highlight-color: #000000;
+  --featured-font-family: "Archivo", sans-serif;
+  --character-top-image-src: url("../images/characters/kids-on-the-bike.svg");
+  --character-top-image-color: #ffffff;
+  --character-bottom-image-src: url("../images/characters/inverted-world-monster.svg");
+  --character-bottom-image-color: #e5e5e5;
+  --background-lamp-image: url("../images/backgrounds/lamps.png");
+  --footer-background-color: #b5bbbf;
+}
+
+.dark-theme {
+  --page-background: linear-gradient(
+    180deg,
+    #050000 0%,
+    #130404 65%,
+    rgba(19, 1, 1, 0.75) 100%
+  );
+  --header-background-color: #220f0f;
+  --highlight-color: #ffffff;
+  --featured-font-family: "Rubik Glitch", sans-serif;
+  --character-bottom-image-src: url("../images/characters/kids-on-the-bike.svg");
+  --character-bottom-image-color: rgba(255, 255, 255, 0.1);
+  --character-top-image-src: url("../images/characters/inverted-world-monster.svg");
+  --character-top-image-color: #000;
+  --background-lamp-image: url("../images/backgrounds/lamps-inverted.png");
+  --footer-background-color: #000;
+}
+
+.dark-theme button,
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3 {
+  letter-spacing: 5px;
+  font-weight: normal;
+}
+
+.dark-theme .inverte-elemento {
+  transform: rotateZ(180deg) scaleX(-1);
+}
+
+/* TEMAS GENÉRICOS */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    transition: 1s;
+}
+
+body{
+    background-color: var(--page-background);
+}
+
+h1, h2, h3{
+    color: var(--primary-color);
+    font-family: var(--featured-font-family);
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+p{
+    color: var(--highlight-color);
+}
+
+p, input, textarea, label{
+    font-family: "Libre Baskerville", serif;
+}
+
+button{
+    background-color: transparent;
+    cursor: pointer;
+    font-family: var(--featured-font-family);
+    font-weight: 900;
+    font-size: 1.25rem;
+    padding: 16px 32px;
+    text-transform: uppercase;
+    transition: background 1s;
+}
+
+main{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+main::before{
+    background: var(--page-background) no-repeat, url("../images/backgrounds/florest.png") no-repeat;
+    background-size: cover;
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+input, textarea{
+    background-color: var(--field-background-color);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color-contrast);
+    margin-bottom: 24px;
+    padding: 8px;
+}
+
+label{
+    margin-bottom: 8px;
+}
+
+input:focus-visible, textarea:focus-visible{
+    border-color: black;
+    outline: none;
+}
+
+/* CABEÇALHO */
+header{
+    align-items: center;
+    background-color: var(--header-background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 850px;
+    position: relative;
+}
+
+header::before{
+    background-image: url("../images/banner/florest.webp");
+    background-position: center 90%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
+    filter: saturate(0);
+    height: 100%;
+    opacity: 0.2;
+    position: absolute;
+    width: 100%;
+}
+
+.cabecalho{
+    max-width: 700px;
+    padding: 80px 20px;
+    text-align: center;
+    z-index: 2;
+}
+
+.cabecalho img{
+    width: 80%;
+}
+
+.cabecalho p{
+    margin: 30px 0 50px;
+}
+
+.cabecalho button{
+    border: 3px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.cabecalho button:hover{
+    background-color: var(--primary-color);
+    color: var(--primary-color-contrast);
+}
+
+/* IMAGENS */
+.imagem{
+    max-width: 900px;
+    position: absolute;
+    width: 100%;
+}
+
+.imagem#topo{
+    background-color: var(--character-top-image-color);
+    bottom: -3px;
+    height: 100%;
+    mask: var(--character-top-image-src) bottom / contain no-repeat;
+    --webkit-mask: var(--character-top-image-src) bottom / 100% no-repeat;
+}
+
+.imagem#baixo{
+    background-color: var(--character-bottom-image-color);
+    height: 500px;
+    transform: rotateZ(180deg) scaleX(-1);
+    position: relative;
+    top: 3px;
+    mask: var(--character-bottom-image-src) bottom / contain no-repeat;
+    --webkit-mask: var(--character-bottom-image-src) bottom / 100% no-repeat;
+}
+
+/* SEÇÕES */
+section{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 95px;
+}
+
+/* PRIMEIRA SEÇÃO */
+.conteudo{
+    max-width: 1200px;
+}
+
+#mundo-invertido{
+    align-items: center;
+}
+
+#mundo-invertido .texto{
+    width: 50%;
+}
+
+#mundo-invertido .texto h2{
+    max-width: 300px;
+}
+
+/* SEGUNDA SEÇÃO */
+#trailer .texto{
+    text-align: right;
+    width: 50%;
+}
+
+#trailer .texto h2{
+    display: inline-block;
+    max-width: 425px;
+}
+
+#trailer .video{
+    background-color: var(--primary-color);
+}
+
+#trailer .video iframe{
+    border: 2px solid;
+    border-image: linear-gradient(var(--primary-color), var(--primary-color-contrast));
+    border-image-slice: 10;
+    bottom: 24px;
+    left: 24px;
+    position: relative;
+}
+
+/* TERCEIRA SEÇÃO */
+#galeria{
+    background: var(--background-lamp-image) 120% / 50% no-repeat;
+    justify-content: center;
+    width: 100%;
+}
+
+#galeria .conteudo{
+    width: 100%;
+}
+
+#galeria .conteudo h2{
+    width: 800px;
+}
+
+#galeria .conteudo-galeria{
+    display: flex;
+    gap: 50px;
+    padding-left: 20px;
+}
+
+#galeria .imagem-galeria img{
+    border: 10px solid var(--highlight-color);
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* QUARTA SEÇÃO */
+#formulario{
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+}
+
+#formulario h2{
+    width: 600px;
+}
+
+#formulario .conteudo-formulario h3{
+    color: var(--highlight-color);
+    flex-basis: 30%;
+    margin: 0;
+    text-align: left;
+}
+
+#formulario .conteudo-formulario h3 span{
+    color: var(--primary-color);
+}
+
+#formulario .conteudo-formulario{
+    align-items: center;
+    display: flex;
+    flex-basis: 50%;
+    justify-content: space-between;
+    position: relative;
+    
+}
+
+#formulario .conteudo-formulario form::after{
+    background-color: var(--highlight-color);
+    content: "";
+    height: 100%;
+    left: 24px;
+    position: absolute;
+    top: 24px;
+    width: 55%;
+    z-index: -1;
+}
+
+#formulario .conteudo-formulario form{
+    background-color: var(--primary-color);
+    color: var(--primary-color-contrast);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    text-align: left;
+
+    /* border-bottom: 20px solid;
+    border-image: var(--highlight-color);
+    border-image-slice: 10; */
+}
+
+#formulario .conteudo-formulario form button{
+    align-self: center;
+    background-color: var(--field-background-color);
+    border: none;
+    color: var(--primary-color-contrast);
+    max-width: 300px;
+}
+
+#formulario .conteudo-formulario form button:hover{
+    background-color: var(--primary-color-contrast);
+    color: var(--field-background-color);
+}
+
+/* RODAPÉ */
+footer{
+    align-items: center;
+    background-color: var(--footer-background-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 60px 0;
+    position: relative;
+    text-align: center;
+}
+
+footer p{
+    margin-bottom: 24px;
+    max-width: 700px;
+}
+
+footer a{
+    color: var(--primary-color);
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+footer::after, footer::before{
+    background: url(../images/footer/tape.svg) no-repeat;
+    background-size: contain;
+    bottom: -30px;
+    content: "";
+    height: 200px;
+    position: absolute;
+    width: 300px;
+}
+
+footer::before{
+    left: -50px;
+    transform: rotateZ(-10deg);
+}
+
+footer::after{
+    right: -50px;
+    transform: rotateZ(10deg);
+}

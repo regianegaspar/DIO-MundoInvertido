@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Invertido</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="light-theme">
+    <header>
+        <div class="cabecalho">
+            <img src="assets/images/banner/logo.svg" alt="Logo da serie" class="inverte-elemento">
+            <p class="inverte-elemento">
+                Uma jornada para quem não tem medo do desconhecido. O caminho para o
+                Mundo invertido é incerto, repleto de obstáculos e perigos. Porém, a
+                recompensa é grande: salvar Hawkings e o mundo todo das garras de
+                Vecna. Você está preparado? Então clique no botão abaixo para entrar
+                no Mundo Invertido!
+            </p>
+            <button id="botao-inverter" onclick="inverterTema()">Inverter Mundos</button>
+        </div>
+        <div id="topo" class="imagem"></div>
+
+    </header>
+    <main>
+        <div id="baixo" class="imagem"></div>
+
+        <section id="mundo-invertido" class="conteudo">
+            <div class="texto">
+                <h2>Mundo Invertido</h2>
+                <p>O Mundo Invertido parece uma cópia do nosso mundo, mas com criaturas
+                    horrendas, tempestades assustadoras, muita escuridão e entidades
+                    malignas. Um reino controlado por Vecna, que tem planos de trazer
+                    tudo isso ao nosso mundo.</p>
+            </div>
+            <img src="assets/images/content/inverted-world.png" alt="Mundo Invertido" class="inverte-elemento">
+        </section>
+
+        <section class="conteudo" id="trailer">
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/SJ9EFhQ3ANQ?controls=0" frameborder="0" width="460"
+                    height="215" title="YouTube video player"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="texto">
+                <h2>Stranger Things Vol. 4</h2>
+                <p>
+                    Mais experientes, os heróis de Stranger Things também precisam
+                    enfrentar desafios maiores do que nunca e fazer decisões que vão
+                    mudar suas vidas para sempre. Confira ao lado o trailer da quarta
+                    temporada.
+                </p>
+            </div>
+        </section>
+
+        <section id="galeria">
+            <div class="conteudo texto">
+                <h2>A segunda série mais assistida da netflix</h2>
+                <div class="conteudo-galeria">
+                    <div class="imagem-galeria inverte-elemento">
+                        <img src="assets/images/content/serie-image-01.png" alt="">
+                    </div>
+                    <div class="imagem-galeria inverte-elemento">
+                        <img src="assets/images/content/serie-image-02.png" alt="">
+                    </div>
+                    <div class="imagem-galeria inverte-elemento">
+                        <img src="assets/images/content/serie-image-03.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="formulario" class="conteudo">
+            <h2>O Clube Dungeons & Dragons</h2>
+            <p>
+                Para deter Vecna, os heróis de Stranger Things também precisam de
+                você. O Clube de D&D mais famoso de Hawkings está com vagas abertas
+                para sua próxima aventura. Se você é destemido, gosta de desafios e
+                não tem medo de rodar o D20, chegou a hora de se inscrever para fazer
+                parte da nova campanha.
+            </p>
+            <div class="conteudo-formulario">
+                <h3>Entre para o clube de D&D e tenha experiências de <span>outro mundo<span></span></h3>
+                <div class="conteudo-formulario">
+                    <form action="">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" name="name">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email">
+                        <label for="level">Level</label>
+                        <input type="text" name="level">
+                        <label for="character">Personagem</label>
+                        <textarea name="character" cols="30" rows="10"></textarea>
+                        <button>Me inscrever</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>Projeto construído durante o curso "Ri Happy - Front-end do Zero" com o objetivo de colocar em prática os conhecimentos de HTML, CSS e JavaScript aprendidos na DIO._</p>
+        <p>Desenvolvido por <a href="https://github.com/regianegaspar" target="_blank">Regiane Gaspar</a></p>
+        <img src="assets/images/footer/logo.svg" alt="">
+    </footer>
+
+    <audio src="assets/musics/normal-world.mpeg" autoplay id="music"></audio>
+
+    <script>
+        window.addEventListener('click', function () {
+            const audio = document.getElementById('music');
+            audio.play();
+            audio.volume = 0.2;
+        })
+
+        function inverterTema() {
+            const body = document.body;
+
+            const isLight = body.classList.contains('light-theme');
+            body.classList.remove(isLight ? 'light-theme' : 'dark-theme');
+            body.classList.add(isLight ? 'dark-theme' : 'light-theme');
+
+            const music = isLight ? 'inverted-world.mpeg' : 'normal-world.mpeg';
+            const audio = document.getElementById('music');
+            audio.src = `assets/musics/${music}`;
+            audio.play();
+            audio.volume = 0.2;
+        }
+    </script>
+
+</body>
+
+</html>
